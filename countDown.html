@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.big {
+				width: 100%;
+				display: flex;
+				height: 300px;
+			}
+			
+			.warp {
+				width: 50%;
+				height: 100px;
+				line-height: 100px;
+				font-size: 40px;
+				font-family: "微软雅黑";
+				position: relative;
+				flex: 1;
+			}
+			
+			.box {
+				width: 100px;
+				height: 100px;
+				background-color: #ccc;
+				top: 10%;
+				left: 25%;
+				position: absolute;
+			}
+			
+			.timer {
+				position: absolute;
+				top: 120%;
+			}
+			
+			.warp strong {
+				width: 100px;
+				display: inline-block;
+				text-align: center;
+				font-family: sans-serif;
+				color: #C9302C;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var arr = [];
+				var timers = document.getElementsByClassName("timer"); //timer
+				for (var i = 0; i < timers.length; i++) {
+					timers.index = i;
+					arr.push(timers[i].attributes["data-seconds"].nodeValue * 100);
+				}
+				setInterval(function() {
+					for (var j = 0; j < arr.length; j++) {
+						if (arr[j] > 0) {
+							var eles = timers[j].children;
+							arr[j]--;
+							eles[0].innerHTML = Math.floor(arr[j] / 100);
+							eles[1].innerHTML = Math.floor(arr[j] % 100);
+						} else if (arr[j] == 0) {
+							timers[j].innerHTML = "抢购结束";
+							timers[j].style.left = "20%";
+						}
+					}
+				}, 10);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="big">
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="5">
+					<strong class="a"></strong>秒
+					<strong class="b"></strong>毫秒
+				</div>
+			</div>
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="3">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+
+			</div>
+		</div>
+
+		<div class="big">
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="53">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+			</div>
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="11">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+
+			</div>
+		</div>
+
+		<div class="big">
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="11">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+			</div>
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="22">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+
+			</div>
+		</div>
+
+		<div class="big">
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="44">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+			</div>
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="10">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+
+			</div>
+		</div>
+
+		<div class="big">
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="20">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+			</div>
+			<div class="warp">
+				<div class="box"></div>
+				<div class="timer" data-seconds="30">
+					<strong class="a"></strong>秒 <strong class="b"></strong>毫秒
+				</div>
+
+			</div>
+		</div>
+		<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+
+		</div>
+	</body>
+
+</html>
